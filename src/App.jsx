@@ -4,7 +4,7 @@ import {
   CssBaseline,
   ThemeProvider,
 } from "@mui/material";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./store/AuthContext";
@@ -40,7 +40,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AuthProvider>
-        <BrowserRouter>
+        <HashRouter>
           <ErrorBoundary>
             <Routes>
               {/* Public routes */}
@@ -104,7 +104,7 @@ function App() {
               <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </ErrorBoundary>
-        </BrowserRouter>
+        </HashRouter>
       </AuthProvider>
     </ThemeProvider>
   );
